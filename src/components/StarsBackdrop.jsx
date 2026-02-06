@@ -9,7 +9,7 @@ export default function StarsBackdrop() {
         camera={{ position: [0, 0, 1] }}
         gl={{ antialias: true, alpha: true }}
       >
-        <Stars radius={60} depth={40} count={1800} factor={2} fade speed={0.6} />
+        <Stars radius={60} depth={40} count={1200} factor={2} fade speed={0.4} />
       </Canvas>
     </div>
   );

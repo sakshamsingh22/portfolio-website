@@ -26,16 +26,43 @@ export default function Projects() {
               <div className="flex-1">
                 <h3 className="text-xl font-semibold">{project.name}</h3>
                 <p className="mt-2 text-sm text-neon-400">{project.stack}</p>
-                <p className="mt-4 text-sm text-white/70">{project.description}</p>
+                {project.problem && (
+                  <p className="mt-4 text-sm text-white/80">
+                    <span className="text-white/50">Problem:</span> {project.problem}
+                  </p>
+                )}
+                {project.features?.length > 0 && (
+                  <p className="mt-3 text-sm text-white/70">
+                    <span className="text-white/50">Key features:</span>{" "}
+                    {project.features.join(", ")}
+                  </p>
+                )}
+                <p className="mt-3 text-sm text-white/70">{project.description}</p>
               </div>
-              <a
-                href={project.link}
-                className="mt-6 inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-neon-400"
-                aria-label={`Open ${project.name} on GitHub`}
-              >
-                <span className="h-2 w-2 rounded-full bg-neon-500" />
-                View on GitHub
-              </a>
+              <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
+                <a
+                  href={project.link}
+                  className="inline-flex items-center gap-2 text-white/70 transition hover:text-neon-400"
+                  aria-label={`Open ${project.name} on GitHub`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="h-2 w-2 rounded-full bg-neon-500" />
+                  View on GitHub
+                </a>
+                {project.liveLink && (
+                  <a
+                    href={project.liveLink}
+                    className="inline-flex items-center gap-2 text-white/70 transition hover:text-neon-400"
+                    aria-label={`Open ${project.name} live demo`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="h-2 w-2 rounded-full bg-neon-500" />
+                    Live Demo
+                  </a>
+                )}
+              </div>
             </motion.article>
           ))}
         </div>

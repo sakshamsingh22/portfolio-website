@@ -11,8 +11,8 @@ export default function Skills() {
             <h2 className="mt-4 text-3xl font-semibold">Core tools I rely on</h2>
           </div>
           <p className="max-w-lg text-sm text-white/60">
-            Balanced across problem-solving, languages, and frontend foundations. The focus is depth and
-            clarity over surface-level tooling.
+            Grouped by how I use them day-to-day: product-facing frontend, backend basics, DSA focus,
+            and the tools that keep projects reliable.
           </p>
         </div>
 
@@ -22,9 +22,9 @@ export default function Skills() {
           </div>
           <div className="grid gap-4">
             {[
-              { title: "Languages", items: "C++, Python, JavaScript" },
-              { title: "Backend", items: "Django" },
-              { title: "Web", items: "HTML, CSS, React" },
+              { title: "Frontend", items: "React, HTML, CSS, JavaScript" },
+              { title: "Backend (Basics)", items: "Python, Django" },
+              { title: "DSA / Problem Solving", items: "C++ (primary), algorithms, complexity" },
               { title: "Tools", items: "Git, GitHub" }
             ].map((group) => (
               <div key={group.title} className="card p-6">

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const socials = [
+const socialLinks = [
   {
     name: "Resume",
     href: "https://drive.google.com/file/d/1OIoJYIigzNa-pB1wXSfGpsV1JpcET7oU/view?usp=drive_link",
@@ -35,6 +35,9 @@ const socials = [
       </svg>
     )
   },
+];
+
+const codingLinks = [
   {
     name: "LeetCode",
     href: "https://leetcode.com/u/sakshambyte/",
@@ -45,31 +48,12 @@ const socials = [
     )
   },
   {
-    name: "GeeksforGeeks",
-    href: "https://www.geeksforgeeks.org/profile/sakshambyte",
+    name: "CodeChef",
+    href: "https://www.codechef.com/",
     icon: (
       <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neon-500/20 text-[9px] font-semibold text-neon-300">
-        GfG
+        CC
       </span>
-    )
-  },
-  {
-    name: "Codeforces",
-    href: "https://codeforces.com/profile/sakshambyte",
-    icon: (
-      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neon-500/20 text-[9px] font-semibold text-neon-300">
-        CF
-      </span>
-    )
-  },
-  {
-    name: "X (Twitter)",
-    href: "https://x.com/sakshambyte",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7">
-        <path d="M5 4l14 16" />
-        <path d="M19 4L5 20" />
-      </svg>
     )
   }
 ];
@@ -119,7 +103,7 @@ export default function Contact() {
         { publicKey }
       );
 
-      setStatus({ type: "success", message: "Message sent successfully! I'll get back to you soon." });
+      setStatus({ type: "success", message: "✅ Message sent successfully. I'll respond within 24 hours." });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setStatus({
@@ -141,19 +125,41 @@ export default function Contact() {
             Reach out for internships, collaborations, or interview prep discussions. I typically respond
             within 24 hours.
           </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            {socials.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white/70 transition hover:border-neon-500/60 hover:text-neon-300"
-              >
-                <span className="text-neon-400 transition group-hover:text-neon-300">{social.icon}</span>
-                {social.name}
-              </a>
-            ))}
+          <div className="mt-6 space-y-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/40">Social </p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white/70 transition hover:border-neon-500/60 hover:text-neon-300"
+                  >
+                    <span className="text-neon-400 transition group-hover:text-neon-300">{social.icon}</span>
+                    {social.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/40">Coding Profiles</p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {codingLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white/70 transition hover:border-neon-500/60 hover:text-neon-300"
+                  >
+                    <span className="text-neon-400 transition group-hover:text-neon-300">{social.icon}</span>
+                    {social.name}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -163,6 +169,12 @@ export default function Contact() {
           whileHover={{ boxShadow: "0 0 40px rgba(79, 107, 255, 0.25)" }}
           transition={{ duration: 0.3 }}
         >
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-neon-400">Let&apos;s Work Together</p>
+            <p className="mt-2 text-sm text-white/60">
+              Reach out for internships, collaborations, or project discussions.
+            </p>
+          </div>
           <div>
             <label className="text-xs uppercase tracking-[0.3em] text-white/50">Name</label>
             <input

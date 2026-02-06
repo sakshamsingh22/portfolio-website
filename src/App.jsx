@@ -4,6 +4,7 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
+import Certifications from "./sections/Certifications";
 import Journey from "./sections/Journey";
 import Contact from "./sections/Contact";
 import StarsBackdrop from "./components/StarsBackdrop";
@@ -28,21 +29,28 @@ export default function App() {
         <div className="mx-auto flex max-w-6xl items-center justify-between py-4">
           <div className="flex items-center gap-3 text-lg font-semibold">
             <span className="h-2 w-2 rounded-full bg-neon-500 shadow-glow" />
+            <img
+              src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
+              alt="Saksham Singh"
+              className="h-9 w-9 rounded-full border border-white/10 object-cover object-[center_20%] ring-1 ring-white/10"
+            />
             Saksham Singh
           </div>
-          <nav className="hidden gap-6 text-sm text-white/70 md:flex">
-            <a className="link-underline" href="#about">About</a>
-            <a className="link-underline" href="#skills">Skills</a>
-            <a className="link-underline" href="#projects">Projects</a>
-            <a className="link-underline" href="#journey">Journey</a>
-            <a className="link-underline" href="#contact">Contact</a>
-          </nav>
-          <a
-            href="#contact"
-            className="rounded-full border border-neon-500/50 px-4 py-2 text-xs uppercase tracking-widest text-neon-400 transition hover:bg-neon-500/10"
-          >
-            Let&apos;s Connect
-          </a>
+          <div className="hidden items-center gap-8 md:flex">
+            <nav className="flex gap-6 text-sm text-white/70">
+              <a className="link-underline" href="#about">About</a>
+              <a className="link-underline" href="#skills">Skills</a>
+              <a className="link-underline" href="#projects">Projects</a>
+              <a className="link-underline" href="#journey">Journey</a>
+              <a className="link-underline" href="#contact">Contact</a>
+            </nav>
+            <a
+              href="#contact"
+              className="rounded-full border border-neon-500/50 px-4 py-2 text-xs uppercase tracking-widest text-neon-400 transition hover:bg-neon-500/10"
+            >
+              Let&apos;s Connect
+            </a>
+          </div>
         </div>
       </header>
 
@@ -70,6 +78,9 @@ export default function App() {
         </motion.section>
         <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <Projects />
+        </motion.section>
+        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+          <Certifications />
         </motion.section>
         <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <Journey />

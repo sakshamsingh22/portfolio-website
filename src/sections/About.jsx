@@ -8,20 +8,20 @@ export default function About() {
           <p className="text-sm uppercase tracking-[0.4em] text-neon-400">About</p>
           <h2 className="mt-4 text-3xl font-semibold">A focused, interview-ready builder</h2>
           <p className="mt-4 text-white/70">
-            I am a Computer Science student who enjoys structured problem-solving and building clean web
-            applications. My current focus is DSA mastery in C++, while sharpening frontend workflows
-            with React.
+            Computer Science student building full-stack web applications using React and Django, with a
+            strong focus on Data Structures and Algorithms in C++.
           </p>
           <p className="mt-4 text-white/60">
-            I value logical thinking, clarity, and steady progress. I love translating ideas into
-            maintainable products and preparing for software engineering interviews with real-world context.
+            I enjoy creating clean, practical projects and continuously work toward becoming interview-ready
+            for software engineering roles.
           </p>
         </div>
         <TiltCard>
           <h3 className="text-lg font-semibold">Quick Profile</h3>
           <ul className="mt-4 space-y-3 text-sm text-white/70">
-            <li><span className="text-white/90">Focus:</span> Data Structures, Algorithms, Web Development</li>
+            <li><span className="text-white/90">Focus:</span> DSA (C++), Full-stack fundamentals</li>
             <li><span className="text-white/90">Languages:</span> C++, Python, JavaScript</li>
+            <li><span className="text-white/90">Backend:</span> Django (basics)</li>
             <li><span className="text-white/90">Mindset:</span> Clean, logical, growth-oriented</li>
             <li><span className="text-white/90">Goal:</span> Internship or entry-level software engineering roles</li>
           </ul>

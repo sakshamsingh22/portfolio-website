@@ -33,19 +33,33 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.26 }}
+            className="mt-3 max-w-xl text-sm text-white/60"
+          >
+            Computer Science student focused on full-stack development and DSA, building real-world
+            projects with React.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.34 }}
             className="mt-4 max-w-xl text-sm text-white/60"
           >
             Clean, logical, and growth-oriented. Focused on interview readiness through strong problem-solving
             and production-grade web experiences.
           </motion.p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="rounded-full bg-neon-500 px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-neon-400"
-            >
-              View Projects
-            </a>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="relative group">
+              <a
+                href="mailto:saksham22.dev@gmail.com"
+                className="rounded-full bg-neon-500 px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-neon-400"
+              >
+                Hire Me
+              </a>
+              <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-neon-500/40 bg-base-900/95 px-3 py-1 text-xs text-white/90 opacity-0 shadow-glow transition group-hover:opacity-100">
+                Please 😊
+              </span>
+            </div>
             <a
               href="https://drive.google.com/file/d/1OIoJYIigzNa-pB1wXSfGpsV1JpcET7oU/view?usp=drive_link"
               target="_blank"

@@ -15,7 +15,7 @@ function CoreShape() {
   return (
     <Float speed={1.4} rotationIntensity={0.6} floatIntensity={0.9}>
       <mesh ref={ref}>
-        <torusKnotGeometry args={[0.7, 0.25, 140, 18]} />
+        <torusKnotGeometry args={[0.6, 0.22, 140, 18]} />
         <meshStandardMaterial
           color="#0f1116"
           metalness={0.7}
@@ -32,7 +32,7 @@ export default function HeroScene() {
   return (
     <Canvas
       dpr={[1, 1.5]}
-      camera={{ position: [0, 0, 3.2], fov: 45 }}
+      camera={{ position: [0, 0, 3.8], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
       <ambientLight intensity={0.6} />
