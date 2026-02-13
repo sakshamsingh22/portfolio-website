@@ -1,0 +1,53 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 360) rotate(90) scale(280)">
+      <stop stop-color="#4F6BFF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#0A0B0E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="720" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5B8DFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#4F6BFF" stop-opacity="0.5"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="360" cy="360" r="280" fill="url(#glow)"/>
+  <circle cx="360" cy="360" r="215" stroke="#4F6BFF" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="360" cy="360" r="155" stroke="#5B8DFF" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="8 12"/>
+
+  <g stroke="#5B8DFF" stroke-opacity="0.6" stroke-width="2" filter="url(#softGlow)">
+    <path d="M180 360H540"/>
+    <path d="M360 180V540"/>
+    <path d="M235 235L485 485"/>
+    <path d="M485 235L235 485"/>
+  </g>
+
+  <g fill="#0A0B0E" stroke="#4F6BFF" stroke-width="2">
+    <circle cx="360" cy="360" r="24" fill="#4F6BFF"/>
+    <circle cx="180" cy="360" r="14"/>
+    <circle cx="540" cy="360" r="14"/>
+    <circle cx="360" cy="180" r="14"/>
+    <circle cx="360" cy="540" r="14"/>
+    <circle cx="235" cy="235" r="12"/>
+    <circle cx="485" cy="235" r="12"/>
+    <circle cx="235" cy="485" r="12"/>
+    <circle cx="485" cy="485" r="12"/>
+  </g>
+
+  <g font-family="'Space Grotesk', sans-serif" font-size="16" fill="#DCE3FF" fill-opacity="0.9">
+    <text x="160" y="340">API</text>
+    <text x="545" y="340">React</text>
+    <text x="340" y="160">Django</text>
+    <text x="330" y="570">SQL</text>
+    <text x="210" y="220">Auth</text>
+    <text x="495" y="220">Cloud</text>
+    <text x="200" y="505">Git</text>
+    <text x="485" y="505">Deploy</text>
+  </g>
+</svg>

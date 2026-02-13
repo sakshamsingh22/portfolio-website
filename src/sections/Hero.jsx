@@ -28,7 +28,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-4 max-w-xl text-lg text-white/70"
           >
-            Aspiring Software Engineer | DSA | Web Development
+            Aspiring Software Engineer | DSA | Full Stack
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -36,17 +36,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.26 }}
             className="mt-3 max-w-xl text-sm text-white/60"
           >
-            Computer Science student focused on full-stack development and DSA, building real-world
-            projects with React.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.34 }}
-            className="mt-4 max-w-xl text-sm text-white/60"
-          >
-            Clean, logical, and growth-oriented. Focused on interview readiness through strong problem-solving
-            and production-grade web experiences.
+            Computer Science student focused on building scalable full-stack applications and mastering
+            Data Structures & Algorithms.
           </motion.p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <div className="relative group">

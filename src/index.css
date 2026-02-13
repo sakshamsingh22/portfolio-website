@@ -17,6 +17,63 @@ body {
     #0a0b0e;
 }
 
+.nav-avatar {
+  will-change: transform, box-shadow;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.custom-cursor,
+body.custom-cursor * {
+  cursor: none !important;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #5b8dff;
+  box-shadow: 0 0 12px rgba(79, 107, 255, 0.8);
+}
+
+.cursor-ring {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 107, 255, 0.45);
+  box-shadow: 0 0 22px rgba(79, 107, 255, 0.25);
+  background: rgba(79, 107, 255, 0.08);
+}
+
+body.cursor-hover .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.25);
+  box-shadow: 0 0 16px rgba(79, 107, 255, 0.9);
+}
+
+body.cursor-hover .cursor-ring {
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 28px rgba(79, 107, 255, 0.35);
+}
+
+body.cursor-click .cursor-dot {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+body.cursor-click .cursor-ring {
+  transform: translate(-50%, -50%) scale(0.9);
+  box-shadow: 0 0 18px rgba(79, 107, 255, 0.2);
+}
+
 ::selection {
   background: rgba(79, 107, 255, 0.35);
 }
