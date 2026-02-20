@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Hero from "./sections/Hero";
 import About from "./sections/About";
-import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Certifications from "./sections/Certifications";
 import Journey from "./sections/Journey";
 import Contact from "./sections/Contact";
-import StarsBackdrop from "./components/StarsBackdrop";
 import IntroLoader from "./components/IntroLoader";
 import CustomCursor from "./components/CustomCursor";
 import ErrorBoundary from "./components/ErrorBoundary";
+
+const Hero = lazy(() => import("./sections/Hero"));
+const Skills = lazy(() => import("./sections/Skills"));
+const StarsBackdrop = lazy(() => import("./components/StarsBackdrop"));
 
 const fadeIn = {
   hidden: { opacity: 0, y: 16 },
@@ -38,7 +39,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen text-white">
-      <StarsBackdrop />
+      <Suspense fallback={null}>
+        <StarsBackdrop />
+      </Suspense>
       <header className="section-padding sticky top-0 z-50 border-b border-white/5 bg-base-900/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between py-4">
           <div
@@ -249,12 +252,16 @@ export default function App() {
           showIntro ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
-        <Hero />
+        <Suspense fallback={<div className="section-padding relative overflow-hidden pb-20 pt-16 min-h-[400px]" />}>
+          <Hero />
+        </Suspense>
         <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <About />
         </motion.section>
         <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-          <Skills />
+          <Suspense fallback={<div className="section-padding py-20 min-h-[400px]" />}>
+            <Skills />
+          </Suspense>
         </motion.section>
         <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <Projects />
