@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { achievements, certifications } from "../data/content";
+import { achievements, certifications } from "@/data/content";
 
 const cardMotion = {
   hidden: { opacity: 0, y: 12 },

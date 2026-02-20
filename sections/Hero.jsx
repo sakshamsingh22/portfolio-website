@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import HeroScene from "../components/HeroScene";
+import HeroScene from "@/components/HeroScene";
 
 export default function Hero() {
   return (

@@ -1,4 +1,4 @@
-import TiltCard from "../components/TiltCard";
+import TiltCard from "@/components/TiltCard";
 
 export default function About() {
   return (

@@ -1,24 +1,27 @@
+"use client";
+
 import { lazy, Suspense, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import About from "./sections/About";
-import Projects from "./sections/Projects";
-import Certifications from "./sections/Certifications";
-import Journey from "./sections/Journey";
-import Contact from "./sections/Contact";
-import IntroLoader from "./components/IntroLoader";
-import CustomCursor from "./components/CustomCursor";
-import ErrorBoundary from "./components/ErrorBoundary";
+import About from "@/sections/About";
+import Projects from "@/sections/Projects";
+import Certifications from "@/sections/Certifications";
+import Journey from "@/sections/Journey";
+import Contact from "@/sections/Contact";
+import IntroLoader from "@/components/IntroLoader";
+import CustomCursor from "@/components/CustomCursor";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import AiChatbot from "@/components/AiChatbot";
 
-const Hero = lazy(() => import("./sections/Hero"));
-const Skills = lazy(() => import("./sections/Skills"));
-const StarsBackdrop = lazy(() => import("./components/StarsBackdrop"));
+const Hero = lazy(() => import("@/sections/Hero"));
+const Skills = lazy(() => import("@/sections/Skills"));
+const StarsBackdrop = lazy(() => import("@/components/StarsBackdrop"));
 
 const fadeIn = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-export default function App() {
+export default function Page() {
   const [showIntro, setShowIntro] = useState(true);
   const [showProfileCard, setShowProfileCard] = useState(false);
   const [showHeroPreview, setShowHeroPreview] = useState(false);
@@ -73,7 +76,7 @@ export default function App() {
                     ? {
                         scale: 1.1,
                         y: -2,
-                        boxShadow: "0 10px 24px rgba(79, 107, 255, 0.35)"
+                        boxShadow: "0 10px 24px rgba(79, 107, 255, 0.35)",
                       }
                     : undefined
                 }
@@ -92,7 +95,9 @@ export default function App() {
                   className="absolute left-0 top-full z-50 mt-3 w-72 rounded-2xl border border-white/10 bg-base-900/80 p-4 text-sm text-white/80 shadow-card backdrop-blur"
                 >
                   <p className="text-base font-semibold text-white">Saksham Singh</p>
-                  <p className="mt-1 text-xs text-white/60">Full Stack Developer | DSA Enthusiast</p>
+                  <p className="mt-1 text-xs text-white/60">
+                    Full Stack Developer | DSA Enthusiast
+                  </p>
                   <p className="mt-3 text-xs text-white/70">
                     <span className="text-white/50">Tech Stack:</span> React, Django, C++, JavaScript
                   </p>
@@ -151,7 +156,9 @@ export default function App() {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <p className="text-base font-semibold text-white">Saksham Singh</p>
-                    <p className="mt-1 text-xs text-white/60">Full Stack Developer | DSA Enthusiast</p>
+                    <p className="mt-1 text-xs text-white/60">
+                      Full Stack Developer | DSA Enthusiast
+                    </p>
                     <p className="mt-3 text-xs text-white/70">
                       <span className="text-white/50">Tech Stack:</span> React, Django, C++, JavaScript
                     </p>
@@ -204,7 +211,7 @@ export default function App() {
               href="#contact"
               className="rounded-full border border-neon-500/50 px-4 py-2 text-xs uppercase tracking-widest text-neon-400 transition hover:bg-neon-500/10"
             >
-              Let&apos;s Connect
+              {"Let's Connect"}
             </a>
           </div>
         </div>
@@ -252,27 +259,63 @@ export default function App() {
           showIntro ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
-        <Suspense fallback={<div className="section-padding relative overflow-hidden pb-20 pt-16 min-h-[400px]" />}>
+        <Suspense
+          fallback={
+            <div className="section-padding relative min-h-[400px] overflow-hidden pb-20 pt-16" />
+          }
+        >
           <Hero />
         </Suspense>
-        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <motion.section
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <About />
         </motion.section>
-        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-          <Suspense fallback={<div className="section-padding py-20 min-h-[400px]" />}>
+        <motion.section
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Suspense
+            fallback={<div className="section-padding min-h-[400px] py-20" />}
+          >
             <Skills />
           </Suspense>
         </motion.section>
-        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <motion.section
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Projects />
         </motion.section>
-        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <motion.section
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Certifications />
         </motion.section>
-        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <motion.section
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Journey />
         </motion.section>
-        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <motion.section
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Contact />
         </motion.section>
       </main>
@@ -280,9 +323,11 @@ export default function App() {
       <footer className="section-padding border-t border-white/5 py-10">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
           <span>Built with React, Three.js, and Framer Motion.</span>
-          <span>© 2026 Saksham Singh. All rights reserved.</span>
+          <span>{"© 2026 Saksham Singh. All rights reserved."}</span>
         </div>
       </footer>
+
+      <AiChatbot />
       <CustomCursor />
     </div>
   );

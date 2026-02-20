@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { timeline } from "../data/content";
+import { timeline } from "@/data/content";
 
 export default function Journey() {
   return (

@@ -1,5 +1,5 @@
-import SkillOrb from "../components/SkillOrb";
-import { skills } from "../data/content";
+import SkillOrb from "@/components/SkillOrb";
+import { skills } from "@/data/content";
 
 export default function Skills() {
   return (

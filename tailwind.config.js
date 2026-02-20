@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"] ,
+  content: ["./app/**/*.{js,jsx}", "./components/**/*.{js,jsx}", "./sections/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
@@ -17,8 +17,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["Space Grotesk", "ui-sans-serif", "system-ui"],
-        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular"]
+        sans: ["var(--font-space-grotesk)", "ui-sans-serif", "system-ui"],
+        mono: ["var(--font-jetbrains-mono)", "ui-monospace", "SFMono-Regular"]
       },
       boxShadow: {
         glow: "0 0 30px rgba(79, 107, 255, 0.35)",
