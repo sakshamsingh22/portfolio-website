@@ -6,39 +6,63 @@ export const projects = [
     features: ["Quick add", "Status filters", "Clean light/dark UI"],
     description: "Focused task manager built for clarity and daily planning.",
     link: "https://github.com/sakshamsingh22/TO-DO",
-    liveLink: "https://sakshamsingh22.github.io/TO-DO/"
+    liveLink: "https://sakshamsingh22.github.io/TO-DO/",
+  },
+  {
+    name: "SamTrack — Productivity OS",
+    stack: "Next.js, React, Tailwind CSS, TypeScript, Node.js",
+    problem:
+      "Students need a single place to track DSA progress, focus sessions, consistency, and daily productivity without switching between multiple tools.",
+    features: [
+      "LeetCode sync",
+      "DSA tracker",
+      "Focus timer",
+      "Weekly heatmaps",
+      "Consistency streaks",
+      "Productivity analytics",
+      "Responsive dashboard UI",
+    ],
+    description:
+      "An all-in-one productivity and coding tracker that helps students manage DSA progress, focus sessions, consistency streaks, LeetCode tracking, analytics, and daily performance in one unified dashboard.",
+    link: "https://github.com/sakshamsingh22/SamTrack-OS",
+    liveLink: "https://sam-track-os.vercel.app/",
   },
   {
     name: "New Project — Coming Soon",
     stack: "In progress",
     problem: "Exploring a new idea to solve a real workflow gap.",
     features: ["Requirements in progress", "Designing the UX"],
-    description: "Currently building my next project. Stay tuned for the next release.",
-    link: "https://github.com/sakshamsingh22"
-  }
+    description:
+      "Currently building my next project. Stay tuned for the next release.",
+    link: "https://github.com/sakshamsingh22",
+  },
 ];
 
 export const timeline = [
   {
     year: "2023",
     title: "College Start & Exploration Phase",
-    detail: "Started college in October 2023 and explored CS domains to build interest in software development."
+    detail:
+      "Started college in October 2023 and explored CS domains to build interest in software development.",
   },
   {
     year: "2024",
     title: "Core CS Fundamentals & Basic DSA",
-    detail: "Studied OOPS, DBMS, and OS. Built basic DSA skills with arrays, strings, and core problem-solving."
+    detail:
+      "Studied OOPS, DBMS, and OS. Built basic DSA skills with arrays, strings, and core problem-solving.",
   },
   {
     year: "2025",
     title: "Frontend Development, Core CS & DSA Focus",
-    detail: "Built responsive web projects, improved UI/UX, strengthened CS subjects, and started dedicated DSA prep."
+    detail:
+      "Built responsive web projects, improved UI/UX, strengthened CS subjects, and started dedicated DSA prep.",
   },
   {
     year: "2026",
     title: "Python Mastery, Django & Daily Problem Solving",
-    detail: "Completed Python fundamentals, began Django backend learning, and built a daily problem-solving habit."
-  }
+    detail:
+      "Completed Python fundamentals, began Django backend learning, and built a daily problem-solving habit.",
+  },
 ];
 
 export const skills = [
@@ -51,7 +75,7 @@ export const skills = [
   "CSS",
   "React",
   "Git",
-  "GitHub"
+  "GitHub",
 ];
 
 export const certifications = [
@@ -62,7 +86,7 @@ export const certifications = [
     activeSince: "24 Jan 2026",
     expiresOn: "24 Jan 2029",
     skills: "Cloud fundamentals, AWS core services, security, billing & pricing",
-    link: "https://www.credly.com/badges/fd51d9e0-38f7-4809-bf8f-6ac6102cc106/linked_in_profile"
+    link: "https://www.credly.com/badges/fd51d9e0-38f7-4809-bf8f-6ac6102cc106/linked_in_profile",
   },
   {
     title: "Cybersecurity Foundation",
@@ -71,27 +95,26 @@ export const certifications = [
     issueDate: "June 22, 2025",
     credentialId: "sdbAPGfZ5s",
     skills: "Security fundamentals, threat awareness, cyber hygiene",
-    link: "https://paloaltonetworksacademy.net/mod/customcert/verify_certificate.php"
+    link: "https://paloaltonetworksacademy.net/mod/customcert/verify_certificate.php",
   },
   {
     title: "Database Programming with SQL",
     organization: "Oracle Academy (in collaboration with KIET University)",
     issueDate: "November 26, 2025",
     skills: "Successfully completed all coursework in database programming and SQL fundamentals.",
-    link: "https://drive.google.com/file/d/1OE9BWh46Fz0Yhm54SFW1lX32QzQ1P6-s/view?usp=sharing"
+    link: "https://drive.google.com/file/d/1OE9BWh46Fz0Yhm54SFW1lX32QzQ1P6-s/view?usp=sharing",
   },
-  
 ];
 
 export const achievements = [
   {
     title: "Consistent DSA Practice",
     year: "2025",
-    description: "Built a daily problem-solving habit and improved time/space analysis."
+    description: "Built a daily problem-solving habit and improved time/space analysis.",
   },
   {
     title: "Frontend Project Delivery",
     year: "2025",
-    description: "Designed and shipped clean UI projects with responsive layouts."
-  }
+    description: "Designed and shipped clean UI projects with responsive layouts.",
+  },
 ];
