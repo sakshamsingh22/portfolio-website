@@ -52,7 +52,7 @@ export default function Hero() {
               </span>
             </div>
             <a
-              href="https://drive.google.com/file/d/1OIoJYIigzNa-pB1wXSfGpsV1JpcET7oU/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1e8dRts2AXqHM8Y-K-DXzH6eHe4vny1x_/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-neon-500/50 px-6 py-3 text-sm font-semibold text-neon-300 transition hover:bg-neon-500/10"
