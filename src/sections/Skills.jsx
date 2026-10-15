@@ -11,8 +11,7 @@ export default function Skills() {
             <h2 className="mt-4 text-3xl font-semibold">Core tools I rely on</h2>
           </div>
           <p className="max-w-lg text-sm text-white/60">
-            Grouped by how I use them day-to-day: product-facing frontend, backend basics, DSA focus,
-            and the tools that keep projects reliable.
+            The core technologies I use to build practical AI and full-stack applications.
           </p>
         </div>
 
@@ -22,10 +21,9 @@ export default function Skills() {
           </div>
           <div className="grid gap-4">
             {[
-              { title: "Frontend", items: "React, HTML, CSS, JavaScript" },
-              { title: "Backend (Basics)", items: "Python, Django" },
-              { title: "DSA / Problem Solving", items: "C++ (primary), algorithms, complexity" },
-              { title: "Tools", items: "Git, GitHub" }
+              { title: "AI & Cloud", items: "AI, AWS, LangChain, Docker" },
+              { title: "Full Stack", items: "FastAPI, Django, React" },
+              { title: "Languages & Tools", items: "Python, C++, JavaScript, SQL, Git" }
             ].map((group) => (
               <div key={group.title} className="card p-6">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/50">{group.title}</p>

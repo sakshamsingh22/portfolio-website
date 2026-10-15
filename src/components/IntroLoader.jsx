@@ -14,11 +14,6 @@ const container = {
   }
 };
 
-const typeContainer = {
-  hidden: { opacity: 1 },
-  show: { opacity: 1 }
-};
-
 export default function IntroLoader({ onFinish }) {
   const lineOne = useMemo(
     () => "INITIALIZING DEVELOPER ENVIRONMENT...".split(""),
@@ -31,58 +26,10 @@ export default function IntroLoader({ onFinish }) {
 
   const doneRef = useRef(false);
 
-  const holdAfterPortfolio = 800;
+  const holdAfterPortfolio = 350;
 
-  const lineOneDuration = 1.2;
-  const lineTwoDelay = lineOneDuration + 0.1;
-  const lineThreeDelay = 1.6;
-
-  const lineOneLetterDuration = 0.12;
-  const lineThreeLetterDuration = 0.18;
-  const lineThreeRevealDuration = 0.6;
-
-  const lineOneStagger =
-    (lineOneDuration - lineOneLetterDuration) /
-    Math.max(lineOne.length - 1, 1);
-
-  const lineThreeStagger =
-    (lineThreeRevealDuration - lineThreeLetterDuration) /
-    Math.max(lineThree.length - 1, 1);
-
-  const lineOneDelay = 0.05;
-
-  const lineOneLetter = {
-    hidden: { opacity: 0, y: 6, filter: "blur(6px)" },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: lineOneLetterDuration,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
-
-  // ✅ FIXED — removed blur from PORTFOLIO letters
-  const lineThreeLetter = {
-    hidden: { opacity: 0, y: 8, scale: 0.9 },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: lineThreeLetterDuration,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
-
-  const handleComplete = () => {
-    if (doneRef.current) return;
-    doneRef.current = true;
-    onFinish?.();
-  };
+  const lineTwoDelay = 0.55;
+  const lineThreeDelay = 1.05;
 
   return (
     <motion.div
@@ -141,21 +88,13 @@ export default function IntroLoader({ onFinish }) {
 
           {/* Line 1 */}
           <motion.div
-            className="text-xs font-mono uppercase tracking-[0.35em] text-white/80 md:text-sm"
-            variants={typeContainer}
-            initial="hidden"
-            animate="show"
-            transition={{
-              staggerChildren: lineOneStagger,
-              delayChildren: lineOneDelay
-            }}
+            className="intro-kicker text-xs font-mono uppercase tracking-[0.35em] text-white/80 md:text-sm"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             style={{ textShadow: "0 0 12px rgba(79,107,255,0.45)" }}
           >
-            {lineOne.map((char, index) => (
-              <motion.span key={`${char}-${index}`} variants={lineOneLetter}>
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
+            {lineOne.join("")}
           </motion.div>
 
           {/* Line 2 */}
@@ -174,44 +113,27 @@ export default function IntroLoader({ onFinish }) {
 
           {/* Line 3 - PORTFOLIO (Sharp Now) */}
           <motion.h1
-            className="mt-3 text-4xl font-semibold uppercase tracking-[0.3em] md:text-7xl"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="intro-title mt-3 text-4xl font-semibold uppercase tracking-[0.3em] md:text-7xl"
+            initial={{ opacity: 0, y: 12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            onAnimationComplete={() => {
+              if (doneRef.current) return;
+              doneRef.current = true;
+              setTimeout(() => onFinish?.(), holdAfterPortfolio);
+            }}
             transition={{
-              duration: 0.55,
+              duration: 0.7,
               ease: [0.16, 1, 0.3, 1],
               delay: lineThreeDelay
             }}
           >
             <motion.span
               className="bg-gradient-to-r from-neon-400 via-white to-neon-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(79,107,255,0.45)]"
-              variants={typeContainer}
-              initial="hidden"
-              animate="show"
-              transition={{
-                staggerChildren: lineThreeStagger,
-                delayChildren: lineThreeDelay
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.45, ease: "easeOut", delay: lineThreeDelay + 0.08 }}
             >
-              {lineThree.map((char, index) => (
-                <motion.span
-                  key={`${char}-${index}`}
-                  variants={lineThreeLetter}
-                  onAnimationComplete={
-                    index === lineThree.length - 1
-                      ? () => {
-                          if (doneRef.current) return;
-                          doneRef.current = true;
-                          setTimeout(() => {
-                            onFinish?.();
-                          }, holdAfterPortfolio);
-                        }
-                      : undefined
-                  }
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
+              {lineThree.join("")}
             </motion.span>
           </motion.h1>
         </div>

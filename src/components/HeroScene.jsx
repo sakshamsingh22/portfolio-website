@@ -4,20 +4,18 @@ import { memo, useMemo, useRef } from "react";
 import * as THREE from "three";
 
 const techLabels = [
+  "AI",
   "AWS",
-  "Linux",
-  "Docker",
-  "Tailwind",
-  "Express",
-  "MongoDB",
-  "Git",
-  "React",
-  "TypeScript",
-  "Node.js",
-  "JavaScript",
-  "C++",
+  "FastAPI",
+  "Django",
   "Python",
-  "MySQL"
+  "C++",
+  "JavaScript",
+  "React",
+  "LangChain",
+  "Docker",
+  "SQL",
+  "Git"
 ];
 
 function createSpherePositions(count, radius) {
@@ -88,16 +86,16 @@ export default function HeroScene() {
     <div className="absolute inset-0">
       <Canvas
         camera={{ position: [0, 0.4, 4.6], fov: 40, near: 0.1, far: 100 }}
-        dpr={[1, 1.5]}
+        dpr={[1, 1.25]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <color attach="background" args={["#0b0f1a"]} />
         <ambientLight intensity={0.35} />
         <directionalLight position={[5, 5, 5]} intensity={0.8} color="#ffffff" />
         <directionalLight position={[-4, 2, -2]} intensity={0.35} color="#5b8dff" />
-        <Stars radius={18} depth={10} count={180} factor={2} fade speed={1} />
+        <Stars radius={18} depth={10} count={120} factor={2} fade speed={0.6} />
         <TechGlobe />
-        <OrbitControls enableZoom={false} enablePan={false} enableDamping dampingFactor={0.08} rotateSpeed={0.6} />
+        <OrbitControls enableZoom={false} enablePan={false} enableDamping dampingFactor={0.08} rotateSpeed={0.35} />
         <ContactShadows position={[0, -1.1, 0]} opacity={0.2} blur={1.6} scale={8} far={3} frames={1} />
       </Canvas>
     </div>
