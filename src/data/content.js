@@ -5,6 +5,7 @@ export const projects = [
     problem: "Needed a simple way to plan tasks without distractions.",
     features: ["Quick add", "Status filters", "Clean light/dark UI"],
     description: "Focused task manager built for clarity and daily planning.",
+    image: "https://placehold.co/600x180/0a0a1a/4f8ef7?text=FocusList",
     link: "https://github.com/sakshamsingh22/TO-DO",
     liveLink: "https://sakshamsingh22.github.io/TO-DO/",
   },
@@ -24,17 +25,65 @@ export const projects = [
     ],
     description:
       "An all-in-one productivity and coding tracker that helps students manage DSA progress, focus sessions, consistency streaks, LeetCode tracking, analytics, and daily performance in one unified dashboard.",
+    image: "https://placehold.co/600x180/0a0a1a/4f8ef7?text=SamTrack",
     link: "https://github.com/sakshamsingh22/SamTrack-OS",
     liveLink: "https://sam-track-os.vercel.app/",
   },
   {
-    name: "New Project — Coming Soon",
-    stack: "In progress",
-    problem: "Exploring a new idea to solve a real workflow gap.",
-    features: ["Requirements in progress", "Designing the UX"],
+    name: "Quorum — Multi-Agent AI Research Assistant",
+    featured: true,
+    date: "October 2026",
+    stack: "Python, LangGraph, Mistral AI, Tavily, Streamlit",
+    problem: "Research workflows need reliable source discovery, reading, drafting, and review in one place.",
+    features: [
+      "4-agent LangGraph pipeline",
+      "Live web search and source selection",
+      "Automated critic and quality score",
+      "Session history",
+      "Markdown report export",
+    ],
     description:
-      "Currently building my next project. Stay tuned for the next release.",
-    link: "https://github.com/sakshamsingh22",
+      "Agentic research assistant that coordinates Search, Reader, Writer, and Critic agents to produce accurate, reviewed reports from live web sources.",
+    shortDescription: "A four-agent research pipeline that searches, reads, writes, and reviews reports from live web sources.",
+    image: "https://placehold.co/600x180/0a0a1a/4f8ef7?text=Quorum",
+    link: "https://github.com/sakshamsingh22/quorum-multi-agent-research",
+    liveLink: "https://quorum-multi-agent.streamlit.app/",
+  },
+  {
+    name: "AI Video Assistant",
+    date: "June 2026",
+    stack: "Python, LangChain, ChromaDB, Whisper, Mistral AI, Streamlit, Docker",
+    problem: "Long-form video and audio are difficult to search, summarize, and turn into actionable notes.",
+    features: [
+      "Transcript and summary generation",
+      "Parallel insight extraction",
+      "RAG transcript Q&A",
+      "English, Hindi, and Hinglish",
+      "PDF/TXT export",
+    ],
+    description:
+      "Video intelligence app that turns uploaded videos, audio, and YouTube content into transcripts, structured summaries, insights, and searchable answers.",
+    shortDescription: "Turns videos, audio, and YouTube content into transcripts, summaries, insights, and searchable answers.",
+    image: "https://placehold.co/600x180/0a0a1a/4f8ef7?text=AI+Video+Assistant",
+    link: "https://github.com/sakshamsingh22/AI-Video-Assistant",
+  },
+  {
+    name: "AI Thumbnail Generator",
+    date: "March 2026",
+    stack: "FastAPI, React, OpenAI, ImageKit, SQLModel, SQLite, Docker",
+    problem: "Creators need a faster way to turn source images into polished, platform-ready thumbnails.",
+    features: [
+      "GPT Image generation",
+      "REST APIs and workflow state",
+      "Real-time SSE updates",
+      "ImageKit CDN and transformations",
+      "Dockerized deployment",
+    ],
+    description:
+      "Full-stack application that generates YouTube thumbnails from uploaded images with asynchronous processing, live status updates, and multi-aspect-ratio delivery.",
+    shortDescription: "Generates YouTube thumbnails with async processing, live status updates, and flexible delivery.",
+    image: "https://placehold.co/600x180/0a0a1a/4f8ef7?text=AI+Thumbnail+Generator",
+    link: "https://github.com/sakshamsingh22/AI-Thumbnail-Generator",
   },
 ];
 
@@ -66,16 +115,18 @@ export const timeline = [
 ];
 
 export const skills = [
-  "C++",
-  "Python",
-  "JavaScript",
+  "AI",
+  "AWS",
+  "FastAPI",
   "Django",
-  "DSA",
-  "HTML",
-  "CSS",
+  "Python",
+  "C++",
+  "JavaScript",
   "React",
+  "LangChain",
+  "Docker",
+  "SQL",
   "Git",
-  "GitHub",
 ];
 
 export const certifications = [

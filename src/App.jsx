@@ -91,7 +91,7 @@ export default function App() {
                   <p className="text-base font-semibold text-white">Saksham Singh</p>
                   <p className="mt-1 text-xs text-white/60">Full Stack Developer | DSA Enthusiast</p>
                   <p className="mt-3 text-xs text-white/70">
-                    <span className="text-white/50">Tech Stack:</span> React, Django, C++, JavaScript
+                    <span className="text-white/50">Tech Stack:</span> AI, AWS, FastAPI, Django, Python, C++, JavaScript, React, LangChain, Docker, SQL, Git
                   </p>
                   <p className="mt-2 text-xs text-white/70">
                     <span className="text-white/50">Location:</span> India
@@ -150,7 +150,7 @@ export default function App() {
                     <p className="text-base font-semibold text-white">Saksham Singh</p>
                     <p className="mt-1 text-xs text-white/60">Full Stack Developer | DSA Enthusiast</p>
                     <p className="mt-3 text-xs text-white/70">
-                      <span className="text-white/50">Tech Stack:</span> React, Django, C++, JavaScript
+                      <span className="text-white/50">Tech Stack:</span> AI, AWS, FastAPI, Django, Python, C++, JavaScript, React, LangChain, Docker, SQL, Git
                     </p>
                     <p className="mt-2 text-xs text-white/70">
                       <span className="text-white/50">Location:</span> India

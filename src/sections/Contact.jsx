@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 const socialLinks = [
   {
     name: "Resume",
-    href: "https://drive.google.com/file/d/1OIoJYIigzNa-pB1wXSfGpsV1JpcET7oU/view?usp=drive_link",
+    href: "https://drive.google.com/file/d/19CV5m5Q8xqSXc9bTUketu5SJV8ez7d1U/view?usp=sharing",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M7 3h7l4 4v14H7z" />
@@ -56,6 +56,12 @@ const codingLinks = [
       </span>
     )
   }
+];
+
+const contactLinks = [
+  { name: "Email me", href: "mailto:saksham22.dev@gmail.com" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/saksham-singh-5b2627290/" },
+  { name: "GitHub", href: "https://github.com/sakshamsingh22" }
 ];
 
 export default function Contact() {
@@ -127,34 +133,33 @@ export default function Contact() {
           </p>
           <div className="mt-6 space-y-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-white/40">Social </p>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/40">Connect</p>
               <div className="mt-3 flex flex-wrap gap-3">
-                {socialLinks.map((social) => (
+                {contactLinks.map((social) => (
                   <a
                     key={social.name}
                     href={social.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white/70 transition hover:border-neon-500/60 hover:text-neon-300"
+                    target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={social.href.startsWith("mailto:") ? undefined : "noreferrer"}
+                    className="contact-action"
                   >
-                    <span className="text-neon-400 transition group-hover:text-neon-300">{social.icon}</span>
                     {social.name}
                   </a>
                 ))}
               </div>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-white/40">Coding Profiles</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/40">Resume & Coding</p>
               <div className="mt-3 flex flex-wrap gap-3">
-                {codingLinks.map((social) => (
+                {socialLinks.filter((social) => social.name === "Resume").concat(codingLinks).map((social) => (
                   <a
                     key={social.name}
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white/70 transition hover:border-neon-500/60 hover:text-neon-300"
+                    className="contact-action"
                   >
-                    <span className="text-neon-400 transition group-hover:text-neon-300">{social.icon}</span>
+                    <span className="text-neon-400">{social.icon}</span>
                     {social.name}
                   </a>
                 ))}

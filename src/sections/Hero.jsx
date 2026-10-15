@@ -28,7 +28,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-4 max-w-xl text-lg text-white/70"
           >
-            Aspiring Software Engineer | DSA | Full Stack
+            Software Engineer | Full-Stack & Generative AI Developer
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -36,8 +36,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.26 }}
             className="mt-3 max-w-xl text-sm text-white/60"
           >
-            Computer Science student focused on building scalable full-stack applications and mastering
-            Data Structures & Algorithms.
+            Computer Science undergraduate building practical AI-powered products with Python, FastAPI,
+            React, and modern agentic workflows.
           </motion.p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <div className="relative group">
@@ -52,7 +52,7 @@ export default function Hero() {
               </span>
             </div>
             <a
-              href="https://drive.google.com/file/d/1e8dRts2AXqHM8Y-K-DXzH6eHe4vny1x_/view?usp=sharing"
+              href="https://drive.google.com/file/d/19CV5m5Q8xqSXc9bTUketu5SJV8ez7d1U/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-neon-500/50 px-6 py-3 text-sm font-semibold text-neon-300 transition hover:bg-neon-500/10"

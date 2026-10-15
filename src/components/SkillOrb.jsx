@@ -10,15 +10,15 @@ function OrbGroup({ labels }) {
       const angle = index * angleStep;
       return {
         label,
-        position: [Math.cos(angle) * 1.6, Math.sin(angle) * 1.6, 0]
+        position: [Math.cos(angle) * 1.9, Math.sin(angle) * 1.9, 0]
       };
     });
   }, [labels]);
 
   useFrame((state, delta) => {
     if (group.current) {
-      group.current.rotation.z += delta * 0.25;
-      group.current.rotation.x += delta * 0.1;
+      group.current.rotation.z += delta * 0.12;
+      group.current.rotation.x += delta * 0.04;
     }
   });
 
@@ -37,7 +37,7 @@ function OrbGroup({ labels }) {
             />
           </mesh>
           <Html distanceFactor={5}>
-            <span className="rounded-full border border-neon-500/30 bg-base-900/95 px-3 py-1 text-[11px] text-white/90 shadow-glow backdrop-blur">
+            <span className="whitespace-nowrap rounded-full border border-neon-500/30 bg-base-900/95 px-2 py-1 text-[10px] text-white/90 shadow-glow backdrop-blur md:px-3 md:text-[11px]">
               {point.label}
             </span>
           </Html>
@@ -53,7 +53,7 @@ export default function SkillOrb({ labels }) {
       <div className="relative h-72 w-72 overflow-visible md:h-80 md:w-80">
         <Canvas
           camera={{ position: [0, 0, 5.5], fov: 45 }}
-          dpr={[1, 1.5]}
+          dpr={[1, 1.25]}
           style={{ overflow: "visible" }}
         >
           <ambientLight intensity={0.6} />
