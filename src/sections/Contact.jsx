@@ -55,6 +55,15 @@ const codingLinks = [
         CC
       </span>
     )
+  },
+  {
+    name: "GeeksforGeeks",
+    href: "https://www.geeksforgeeks.org/profile/sakshambyte",
+    icon: (
+      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neon-500/20 text-[9px] font-semibold text-neon-300">
+        GFG
+      </span>
+    )
   }
 ];
 
