@@ -40,7 +40,7 @@ const socialLinks = [
 const codingLinks = [
   {
     name: "LeetCode",
-    href: "https://leetcode.com/u/sakshambyte/",
+    href: "https://leetcode.com/u/Saksham-122/",
     icon: (
       <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neon-500/20 text-[10px] font-semibold text-neon-300">
         LC
