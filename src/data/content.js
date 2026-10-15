@@ -6,7 +6,7 @@ export const projects = [
     features: ["Quick add", "Status filters", "Clean light/dark UI"],
     description: "Focused task manager built for clarity and daily planning.",
     image: "https://placehold.co/600x180/0a0a1a/4f8ef7?text=FocusList",
-    link: "#",
+    link: "https://github.com/sakshamsingh22/TO-DO",
     liveLink: "https://sakshamsingh22.github.io/TO-DO/",
   },
   {
