@@ -49,7 +49,7 @@ const codingLinks = [
   },
   {
     name: "CodeChef",
-    href: "https://www.codechef.com/",
+    href: "https://www.codechef.com/users/saksham122",
     icon: (
       <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neon-500/20 text-[9px] font-semibold text-neon-300">
         CC
