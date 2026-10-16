@@ -137,7 +137,7 @@ export default function App() {
             <AnimatePresence>
               {isCoarse && showProfileCard && (
                 <motion.div
-                  className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 px-5 backdrop-blur-sm"
+                  className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4 backdrop-blur-md"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -149,7 +149,7 @@ export default function App() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.88, y: 12 }}
                     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative rounded-3xl border border-white/10 bg-base-900/60 p-3 shadow-card backdrop-blur-xl"
+                    className="relative max-h-[84vh] max-w-[92vw] rounded-3xl border border-white/10 bg-base-900/75 p-3 shadow-card backdrop-blur-xl"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <button
@@ -163,7 +163,7 @@ export default function App() {
                     <motion.img
                       src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
                       alt="Saksham Singh"
-                      className="h-[min(72vh,28rem)] w-[min(82vw,22rem)] rounded-2xl object-cover object-[center_20%] shadow-[0_0_40px_rgba(79,107,255,0.35)]"
+                      className="block max-h-[78vh] max-w-[86vw] rounded-2xl object-contain shadow-[0_0_40px_rgba(79,107,255,0.35)]"
                       animate={{ y: [0, -8, 0] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                     />
