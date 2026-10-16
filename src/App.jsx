@@ -57,14 +57,14 @@ export default function App() {
             <span className="h-2 w-2 rounded-full bg-neon-500 shadow-glow" />
             <button
               type="button"
-              className="flex items-center gap-3"
+              className="flex min-w-0 items-center gap-3"
               onClick={() => isCoarse && setShowProfileCard((prev) => !prev)}
               aria-label="Open profile details"
             >
               <motion.img
                 src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
                 alt="Saksham Singh"
-                className="nav-avatar h-9 w-9 rounded-full border border-white/10 object-cover object-[center_20%] ring-1 ring-white/10"
+                className="nav-avatar h-10 w-10 shrink-0 rounded-full border border-white/10 object-cover object-[center_20%] ring-1 ring-white/10"
                 whileHover={
                   !isCoarse
                     ? {
@@ -88,10 +88,15 @@ export default function App() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="absolute left-0 top-full z-50 mt-3 w-72 rounded-2xl border border-white/10 bg-base-900/80 p-4 text-sm text-white/80 shadow-card backdrop-blur"
                 >
+                  <img
+                    src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
+                    alt="Saksham Singh"
+                    className="mx-auto mb-4 h-24 w-24 rounded-full border border-neon-500/40 object-cover object-[center_20%] shadow-glow"
+                  />
                   <p className="text-base font-semibold text-white">Saksham Singh</p>
                   <p className="mt-1 text-xs text-white/60">Full Stack Developer | DSA Enthusiast</p>
                   <p className="mt-3 text-xs text-white/70">
-                    <span className="text-white/50">Tech Stack:</span> AI, AWS, FastAPI, Django, Python, C++, JavaScript, React, LangChain, Docker, SQL, Git
+                    <span className="text-white/50">Core Stack:</span> AI, AWS, FastAPI, Django, Python, C++, JavaScript
                   </p>
                   <p className="mt-2 text-xs text-white/70">
                     <span className="text-white/50">Location:</span> India
@@ -147,10 +152,15 @@ export default function App() {
                     className="mx-6 w-full max-w-sm rounded-2xl border border-white/10 bg-base-900/90 p-5 text-sm text-white/80 shadow-card backdrop-blur"
                     onClick={(e) => e.stopPropagation()}
                   >
+                    <img
+                      src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
+                      alt="Saksham Singh"
+                      className="mx-auto mb-4 h-24 w-24 rounded-full border border-neon-500/40 object-cover object-[center_20%] shadow-glow"
+                    />
                     <p className="text-base font-semibold text-white">Saksham Singh</p>
                     <p className="mt-1 text-xs text-white/60">Full Stack Developer | DSA Enthusiast</p>
                     <p className="mt-3 text-xs text-white/70">
-                      <span className="text-white/50">Tech Stack:</span> AI, AWS, FastAPI, Django, Python, C++, JavaScript, React, LangChain, Docker, SQL, Git
+                      <span className="text-white/50">Core Stack:</span> AI, AWS, FastAPI, Django, Python, C++, JavaScript
                     </p>
                     <p className="mt-2 text-xs text-white/70">
                       <span className="text-white/50">Location:</span> India

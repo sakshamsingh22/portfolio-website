@@ -99,7 +99,7 @@ export default function IntroLoader({ onFinish }) {
 
           {/* Line 2 */}
           <motion.h2
-            className="mt-4 text-2xl font-semibold text-white/95 md:text-4xl"
+            className="intro-welcome mt-4 text-2xl font-semibold text-white/95 md:text-4xl"
             initial={{ opacity: 0, y: 10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
