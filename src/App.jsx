@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { createPortal } from "react-dom";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
@@ -136,39 +137,42 @@ export default function App() {
 
             <AnimatePresence>
               {isCoarse && showProfileCard && (
-                <motion.div
-                  className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4 backdrop-blur-md"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  onClick={() => setShowProfileCard(false)}
-                >
+                createPortal(
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.78, y: 18 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.88, y: 12 }}
-                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative max-h-[84vh] max-w-[92vw] rounded-3xl border border-white/10 bg-base-900/75 p-3 shadow-card backdrop-blur-xl"
-                    onClick={(e) => e.stopPropagation()}
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 px-4 backdrop-blur-md"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    onClick={() => setShowProfileCard(false)}
                   >
-                    <button
-                      type="button"
-                      className="absolute -right-2 -top-12 rounded-full border border-white/15 bg-base-900/80 px-4 py-2 text-xs uppercase tracking-widest text-white/75 transition hover:border-neon-500/60 hover:text-white"
-                      onClick={() => setShowProfileCard(false)}
-                      aria-label="Close profile photo"
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.78, y: 18 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.88, y: 12 }}
+                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                      className="relative rounded-3xl border border-white/10 bg-base-900/75 p-3 shadow-card backdrop-blur-xl"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      Back
-                    </button>
-                    <motion.img
-                      src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
-                      alt="Saksham Singh"
-                      className="block max-h-[78vh] max-w-[86vw] rounded-2xl object-contain shadow-[0_0_40px_rgba(79,107,255,0.35)]"
-                      animate={{ y: [0, -8, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                  </motion.div>
-                </motion.div>
+                      <button
+                        type="button"
+                        className="absolute -right-2 -top-12 rounded-full border border-white/15 bg-base-900/90 px-4 py-2 text-xs uppercase tracking-widest text-white/75 transition hover:border-neon-500/60 hover:text-white"
+                        onClick={() => setShowProfileCard(false)}
+                        aria-label="Close profile photo"
+                      >
+                        Back
+                      </button>
+                      <motion.img
+                        src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
+                        alt="Saksham Singh"
+                        className="block h-[min(78vh,34rem)] w-[min(86vw,22rem)] rounded-2xl object-contain shadow-[0_0_40px_rgba(79,107,255,0.35)]"
+                        animate={{ y: [0, -8, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                    </motion.div>
+                  </motion.div>,
+                  document.body
+                )
               )}
             </AnimatePresence>
           </div>
