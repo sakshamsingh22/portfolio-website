@@ -20,7 +20,7 @@ export const assistantKnowledge = [
     id: "education",
     keywords: ["education", "college", "university", "degree", "kiet", "btech", "b.tech", "graduation", "पढ़ाई", "कॉलेज"],
     answer:
-      "Saksham is pursuing a Bachelor of Technology in Computer Science at KIET Group of Institutions in Ghaziabad, Uttar Pradesh, India. He is expected to graduate in 2027. The portfolio does not currently verify a CGPA, so I won't guess one.",
+      "Saksham is pursuing a Bachelor of Technology in Computer Science at KIET Group of Institutions in Ghaziabad, Uttar Pradesh, India. He is expected to graduate in 2027 and currently has a CGPA of 8.4.",
   },
   {
     id: "skills",
