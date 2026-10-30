@@ -1,53 +1,30 @@
 import { useEffect, useRef, useState } from "react";
+import { assistantSuggestions, getAssistantResponse } from "../data/assistantKnowledge";
 
-const quickPrompts = ["What does Saksham build?", "Tell me about Quorum", "How can I contact him?"];
-
-const responses = [
-  {
-    keywords: ["contact", "hire", "email", "reach", "linkedin"],
-    answer:
-      "You can reach Saksham at saksham22.dev@gmail.com, or connect on LinkedIn. He is open to internships, collaborations, and interesting product conversations.",
-  },
-  {
-    keywords: ["quorum", "research"],
-    answer:
-      "Quorum is a four-agent research assistant built with Python, LangGraph, Mistral AI, Tavily, and Streamlit. Its Search, Reader, Writer, and Critic agents work together to create reviewed reports from live sources.",
-    link: "https://quorum-multi-agent.streamlit.app/",
-    linkLabel: "Open Quorum",
-  },
-  {
-    keywords: ["video", "whisper", "transcript"],
-    answer:
-      "The AI Video Assistant turns videos, audio, and YouTube content into transcripts, summaries, insights, and searchable answers. It supports English, Hindi, and Hinglish.",
-  },
-  {
-    keywords: ["skill", "stack", "technology", "tech", "use"],
-    answer:
-      "Saksham works with Python, FastAPI, Django, React, JavaScript, C++, SQL, Docker, LangChain, AWS, and agentic AI workflows.",
-  },
-  {
-    keywords: ["project", "build", "work", "portfolio"],
-    answer:
-      "He builds practical AI and full-stack products, including Quorum, AI Video Assistant, AI Thumbnail Generator, SamTrack, and FocusList. Scroll to Projects to explore them.",
-  },
-  {
-    keywords: ["about", "who", "experience", "background"],
-    answer:
-      "Saksham is a Computer Science undergraduate and Full-Stack & Generative AI Developer based in India. He enjoys turning useful ideas into clean, reliable products.",
-  },
-];
-
-function getResponse(message) {
-  const normalizedMessage = message.toLowerCase();
-  const matchedResponse = responses.find(({ keywords }) =>
-    keywords.some((keyword) => normalizedMessage.includes(keyword))
-  );
+function AgentMessage({ currentMessage }) {
+  const response = currentMessage.response;
+  const isExternalLink = response?.link && !response.link.startsWith("mailto:");
 
   return (
-    matchedResponse || {
-      answer:
-        "I can tell you about Saksham's projects, skills, background, or how to get in touch. Try asking about Quorum or his tech stack.",
-    }
+    <div
+      className={`max-w-[88%] rounded-2xl px-3 py-2 leading-relaxed ${
+        currentMessage.role === "user"
+          ? "ml-auto rounded-br-sm bg-neon-500 text-white"
+          : "rounded-bl-sm border border-white/10 bg-white/5 text-white/75"
+      }`}
+    >
+      {currentMessage.text || response?.answer}
+      {response?.link && (
+        <a
+          href={response.link}
+          target={isExternalLink ? "_blank" : undefined}
+          rel={isExternalLink ? "noreferrer" : undefined}
+          className="mt-2 block font-semibold text-neon-300 underline-offset-4 hover:underline"
+        >
+          {response.linkLabel}
+        </a>
+      )}
+    </div>
   );
 }
 
@@ -58,7 +35,7 @@ export default function PortfolioAgent() {
     {
       id: 1,
       role: "agent",
-      text: "Hi! I’m Saksham’s AI assistant. Ask me about his projects, skills, or experience.",
+      text: "Hi! I’m Saksham’s AI portfolio assistant. Ask me about his education, projects, skills, experience, or career interests.",
     },
   ]);
   const messagesEndRef = useRef(null);
@@ -75,7 +52,7 @@ export default function PortfolioAgent() {
     setMessages((currentMessages) => [
       ...currentMessages,
       { id: Date.now(), role: "user", text: trimmedMessage },
-      { id: Date.now() + 1, role: "agent", text: getResponse(trimmedMessage).answer },
+      { id: Date.now() + 1, role: "agent", response: getAssistantResponse(trimmedMessage) },
     ]);
     setMessage("");
   }
@@ -94,41 +71,22 @@ export default function PortfolioAgent() {
                 <p className="text-[11px] text-emerald-300">Online · Portfolio guide</p>
               </div>
             </div>
-            <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              className="rounded-full p-2 text-white/50 transition hover:bg-white/10 hover:text-white"
-              aria-label="Close AI assistant"
-            >
+            <button type="button" onClick={() => setIsOpen(false)} className="rounded-full p-2 text-white/50 transition hover:bg-white/10 hover:text-white" aria-label="Close AI assistant">
               ×
             </button>
           </div>
 
           <div className="flex-1 space-y-3 overflow-y-auto p-4 text-sm">
             {messages.map((currentMessage) => (
-              <div
-                key={currentMessage.id}
-                className={`max-w-[88%] rounded-2xl px-3 py-2 leading-relaxed ${
-                  currentMessage.role === "user"
-                    ? "ml-auto rounded-br-sm bg-neon-500 text-white"
-                    : "rounded-bl-sm border border-white/10 bg-white/5 text-white/75"
-                }`}
-              >
-                {currentMessage.text}
-              </div>
+              <AgentMessage key={currentMessage.id} currentMessage={currentMessage} />
             ))}
             <div ref={messagesEndRef} />
           </div>
 
           <div className="border-t border-white/10 p-3">
             <div className="mb-3 flex gap-2 overflow-x-auto pb-1">
-              {quickPrompts.map((prompt) => (
-                <button
-                  key={prompt}
-                  type="button"
-                  onClick={() => submitMessage(undefined, prompt)}
-                  className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-[11px] text-white/60 transition hover:border-neon-500/50 hover:text-neon-300"
-                >
+              {assistantSuggestions.slice(0, 4).map((prompt) => (
+                <button key={prompt} type="button" onClick={() => submitMessage(undefined, prompt)} className="shrink-0 rounded-full border border-white/10 px-3 py-1.5 text-[11px] text-white/60 transition hover:border-neon-500/50 hover:text-neon-300">
                   {prompt}
                 </button>
               ))}
@@ -141,11 +99,7 @@ export default function PortfolioAgent() {
                 aria-label="Message Saksham's AI assistant"
                 className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/35 focus:border-neon-500/60"
               />
-              <button
-                type="submit"
-                className="rounded-full bg-neon-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-neon-400"
-                aria-label="Send message"
-              >
+              <button type="submit" className="rounded-full bg-neon-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-neon-400" aria-label="Send message">
                 ↑
               </button>
             </form>
