@@ -121,11 +121,13 @@ export default function PortfolioAgent() {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className="ml-auto flex items-center gap-2 rounded-full border border-neon-500/50 bg-base-900/90 px-4 py-3 text-sm font-semibold text-neon-200 shadow-glow backdrop-blur transition hover:-translate-y-1 hover:border-neon-400 hover:text-white"
+        className="ml-auto flex items-center gap-2 rounded-full border border-neon-300/35 bg-base-900/55 px-4 py-3 text-sm font-medium tracking-wide text-white/85 shadow-[0_8px_30px_rgba(79,107,255,0.2)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-neon-300/70 hover:bg-base-900/75 hover:text-white hover:shadow-glow"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
       >
-        <span className="text-lg">✦</span>
+        <span className="flex h-5 w-5 items-center justify-center rounded-full border border-neon-300/50 bg-neon-500/20 text-xs text-neon-200">
+          ✦
+        </span>
         <span>{isOpen ? "Close chat" : "Ask AI"}</span>
       </button>
     </div>
