@@ -140,11 +140,17 @@ export const assistantKnowledge = [
 ];
 
 export function getAssistantResponse(message) {
-  const normalizedMessage = message.toLowerCase().trim();
+  const normalizedMessage = message.toLowerCase().trim().replace(/\s+/g, " ");
+  const compactMessage = normalizedMessage.replace(/[\s_-]+/g, "");
   const rankedMatches = assistantKnowledge
     .map((entry) => {
       const score = entry.keywords.reduce(
-        (total, keyword) => total + (normalizedMessage.includes(keyword) ? (keyword.includes(" ") ? 3 : 1) : 0),
+        (total, keyword) => {
+          const normalizedKeyword = keyword.toLowerCase().trim().replace(/\s+/g, " ");
+          const compactKeyword = normalizedKeyword.replace(/[\s_-]+/g, "");
+          const matches = normalizedMessage.includes(normalizedKeyword) || compactMessage.includes(compactKeyword);
+          return total + (matches ? (normalizedKeyword.includes(" ") ? 3 : 1) : 0);
+        },
         0
       );
       return { entry, score };
