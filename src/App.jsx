@@ -12,6 +12,7 @@ import StarsBackdrop from "./components/StarsBackdrop";
 import IntroLoader from "./components/IntroLoader";
 import CustomCursor from "./components/CustomCursor";
 import ErrorBoundary from "./components/ErrorBoundary";
+import PortfolioAgent from "./components/PortfolioAgent";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 16 },
@@ -263,6 +264,7 @@ export default function App() {
           <span>© 2026 Saksham Singh. All rights reserved.</span>
         </div>
       </footer>
+      <PortfolioAgent />
       <CustomCursor />
     </div>
   );
