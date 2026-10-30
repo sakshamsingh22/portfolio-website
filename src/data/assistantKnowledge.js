@@ -81,6 +81,19 @@ export const assistantKnowledge = [
       "Saksham is interested in Software Development Engineering, Python development, full-stack development, AI engineering, Agentic AI development, AI automation, and Generative AI applications. He is especially excited by opportunities combining software engineering, AI, automation, and practical product development.",
   },
   {
+    id: "links",
+    keywords: ["resume", "cv", "portfolio", "github", "linkedin", "portfolio link", "website link", "github link", "linkedin link", "url", "links", "link"],
+    answer: "Here are Saksham's verified links:",
+    links: [
+      { label: "Resume", href: "https://drive.google.com/file/d/19CV5m5Q8xqSXc9bTUketu5SJV8ez7d1U/view?usp=sharing" },
+      { label: "Portfolio", href: "https://sakshamsingh.in/" },
+      { label: "GitHub", href: "https://github.com/sakshamsingh22" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/saksham-singh-5b2627290/" },
+      { label: "WIBLY agency", href: "https://wibly.in/" },
+      { label: "SamTrack OS", href: "https://sam-track-os.vercel.app/" },
+    ],
+  },
+  {
     id: "contact",
     keywords: ["contact", "hire", "email", "reach", "linkedin", "github", "resume", "connect", "संपर्क"],
     answer:

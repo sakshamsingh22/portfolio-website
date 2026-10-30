@@ -24,6 +24,17 @@ function AgentMessage({ currentMessage }) {
           {response.linkLabel}
         </a>
       )}
+      {response?.links?.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-1 block font-semibold text-neon-300 underline-offset-4 hover:underline"
+        >
+          {link.label}
+        </a>
+      ))}
     </div>
   );
 }
