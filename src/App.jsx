@@ -181,9 +181,9 @@ export default function App() {
           <div className="hidden items-center gap-8 md:flex">
             <nav className="flex gap-6 text-sm text-white/70">
               <a className="link-underline" href="#about">About</a>
+              <a className="link-underline" href="#why-hire">Why hire</a>
               <a className="link-underline" href="#skills">Skills</a>
               <a className="link-underline" href="#projects">Projects</a>
-              <a className="link-underline" href="#why-hire">Why hire</a>
               <a className="link-underline" href="#journey">Journey</a>
               <a className="link-underline" href="#contact">Contact</a>
             </nav>
