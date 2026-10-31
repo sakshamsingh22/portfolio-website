@@ -14,6 +14,7 @@ import CustomCursor from "./components/CustomCursor";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PortfolioAgent from "./components/PortfolioAgent";
 import RecruiterValue from "./sections/RecruiterValue";
+import { initializeAnalytics, trackEvent } from "./lib/analytics";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 16 },
@@ -25,8 +26,10 @@ export default function App() {
   const [showProfileCard, setShowProfileCard] = useState(false);
   const [showHeroPreview, setShowHeroPreview] = useState(false);
   const [isCoarse, setIsCoarse] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    initializeAnalytics();
     if (typeof window === "undefined") return;
     const media = window.matchMedia("(pointer: coarse)");
     const update = () => setIsCoarse(media.matches);
@@ -38,6 +41,20 @@ export default function App() {
     media.addListener(update);
     return () => media.removeListener(update);
   }, []);
+
+  const navigationLinks = [
+    ["About", "#about"],
+    ["Why hire", "#why-hire"],
+    ["Skills", "#skills"],
+    ["Projects", "#projects"],
+    ["Journey", "#journey"],
+    ["Contact", "#contact"],
+  ];
+
+  function handleNavigationClick(label) {
+    trackEvent("navigation_click", { label });
+    setIsMobileMenuOpen(false);
+  }
 
   return (
     <div className="relative min-h-screen text-white">
@@ -67,6 +84,9 @@ export default function App() {
               <motion.img
                 src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
                 alt="Saksham Singh"
+                width="40"
+                height="40"
+                decoding="async"
                 className="nav-avatar h-10 w-10 shrink-0 rounded-full border border-white/10 object-cover object-[center_20%] ring-1 ring-white/10"
                 whileHover={
                   !isCoarse
@@ -94,6 +114,10 @@ export default function App() {
                   <img
                     src="/WhatsApp Image 2026-01-24 at 11.50.33.jpeg"
                     alt="Saksham Singh"
+                    width="96"
+                    height="96"
+                    loading="lazy"
+                    decoding="async"
                     className="mx-auto mb-4 h-24 w-24 rounded-full border border-neon-500/40 object-cover object-[center_20%] shadow-glow"
                   />
                   <p className="text-base font-semibold text-white">Saksham Singh</p>
@@ -180,12 +204,11 @@ export default function App() {
           </div>
           <div className="hidden items-center gap-8 md:flex">
             <nav className="flex gap-6 text-sm text-white/70">
-              <a className="link-underline" href="#about">About</a>
-              <a className="link-underline" href="#why-hire">Why hire</a>
-              <a className="link-underline" href="#skills">Skills</a>
-              <a className="link-underline" href="#projects">Projects</a>
-              <a className="link-underline" href="#journey">Journey</a>
-              <a className="link-underline" href="#contact">Contact</a>
+              {navigationLinks.map(([label, href]) => (
+                <a key={label} className="link-underline" href={href} onClick={() => handleNavigationClick(label)}>
+                  {label}
+                </a>
+              ))}
             </nav>
             <a
               href="#contact"
@@ -194,7 +217,38 @@ export default function App() {
               Let&apos;s Connect
             </a>
           </div>
+          <button
+            type="button"
+            className="rounded-full border border-white/15 p-2 text-white/80 md:hidden"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          >
+            <span className="block h-0.5 w-5 bg-current" />
+            <span className="mt-1.5 block h-0.5 w-5 bg-current" />
+            <span className="mt-1.5 block h-0.5 w-5 bg-current" />
+          </button>
         </div>
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.nav
+              id="mobile-navigation"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="overflow-hidden border-t border-white/10 py-3 md:hidden"
+            >
+              <div className="flex flex-col gap-1">
+                {navigationLinks.map(([label, href]) => (
+                  <a key={label} className="rounded-xl px-3 py-3 text-sm text-white/75 hover:bg-white/5 hover:text-white" href={href} onClick={() => handleNavigationClick(label)}>
+                    {label}
+                  </a>
+                ))}
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </header>
 
       <AnimatePresence>

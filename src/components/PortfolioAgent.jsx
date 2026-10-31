@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { assistantSuggestions, getAssistantResponse } from "../data/assistantKnowledge";
+import { trackEvent } from "../lib/analytics";
 
 function AgentMessage({ currentMessage }) {
   const response = currentMessage.response;
@@ -39,9 +40,20 @@ function AgentMessage({ currentMessage }) {
   );
 }
 
+function TypingIndicator() {
+  return (
+    <div className="flex w-fit items-center gap-1 rounded-2xl rounded-bl-sm border border-white/10 bg-white/5 px-3 py-3" aria-label="Assistant is typing">
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-neon-300 [animation-delay:-0.2s]" />
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-neon-300 [animation-delay:-0.1s]" />
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-neon-300" />
+    </div>
+  );
+}
+
 export default function PortfolioAgent() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -50,22 +62,30 @@ export default function PortfolioAgent() {
     },
   ]);
   const messagesEndRef = useRef(null);
+  const typingTimeoutRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  useEffect(() => () => window.clearTimeout(typingTimeoutRef.current), []);
+
   function submitMessage(event, prompt = message) {
     event?.preventDefault();
     const trimmedMessage = prompt.trim();
-    if (!trimmedMessage) return;
+    if (!trimmedMessage || isTyping) return;
 
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      { id: Date.now(), role: "user", text: trimmedMessage },
-      { id: Date.now() + 1, role: "agent", response: getAssistantResponse(trimmedMessage) },
-    ]);
+    setMessages((currentMessages) => [...currentMessages, { id: Date.now(), role: "user", text: trimmedMessage }]);
     setMessage("");
+    setIsTyping(true);
+    trackEvent("assistant_question", { question: trimmedMessage.slice(0, 80) });
+    typingTimeoutRef.current = window.setTimeout(() => {
+      setMessages((currentMessages) => [
+        ...currentMessages,
+        { id: Date.now(), role: "agent", response: getAssistantResponse(trimmedMessage) },
+      ]);
+      setIsTyping(false);
+    }, 420);
   }
 
   return (
@@ -91,6 +111,7 @@ export default function PortfolioAgent() {
             {messages.map((currentMessage) => (
               <AgentMessage key={currentMessage.id} currentMessage={currentMessage} />
             ))}
+            {isTyping && <TypingIndicator />}
             <div ref={messagesEndRef} />
           </div>
 
