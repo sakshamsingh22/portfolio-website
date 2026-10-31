@@ -13,6 +13,7 @@ import IntroLoader from "./components/IntroLoader";
 import CustomCursor from "./components/CustomCursor";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PortfolioAgent from "./components/PortfolioAgent";
+import RecruiterValue from "./sections/RecruiterValue";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 16 },
@@ -182,6 +183,7 @@ export default function App() {
               <a className="link-underline" href="#about">About</a>
               <a className="link-underline" href="#skills">Skills</a>
               <a className="link-underline" href="#projects">Projects</a>
+              <a className="link-underline" href="#why-hire">Why hire</a>
               <a className="link-underline" href="#journey">Journey</a>
               <a className="link-underline" href="#contact">Contact</a>
             </nav>
@@ -240,6 +242,9 @@ export default function App() {
         <Hero />
         <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <About />
+        </motion.section>
+        <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+          <RecruiterValue />
         </motion.section>
         <motion.section variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
           <Skills />

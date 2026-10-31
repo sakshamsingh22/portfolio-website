@@ -37,14 +37,22 @@ export const assistantKnowledge = [
     keywords: ["ai project", "ai projects", "agent", "agentic", "multi-agent", "generative", "automation", "rag"],
     answer:
       "His AI-focused work includes Quorum, a multi-agent research assistant; AI Video Assistant, which turns media into searchable insights; AI Thumbnail Generator, a full-stack image workflow; and Mikasa, an experimental personal assistant built with Google AI Studio. Mikasa is a work in progress, not a finished production product.",
+    links: [
+      { label: "Quorum live demo", href: "https://quorum-multi-agent.streamlit.app/" },
+      { label: "Quorum GitHub", href: "https://github.com/sakshamsingh22/quorum-multi-agent-research" },
+      { label: "AI Video Assistant GitHub", href: "https://github.com/sakshamsingh22/AI-Video-Assistant" },
+      { label: "AI Thumbnail Generator GitHub", href: "https://github.com/sakshamsingh22/AI-Thumbnail-Generator" },
+    ],
   },
   {
     id: "quorum",
     keywords: ["quorum", "research assistant", "research project"],
     answer:
       "Quorum is a Multi-Agent AI Research Assistant exploring how specialized agents can collaborate to discover information, analyze findings, and produce structured research outputs. Its documented stack includes Python, LangGraph, Mistral AI, Tavily, and Streamlit, with Search, Reader, Writer, and Critic roles.",
-    link: "https://quorum-multi-agent.streamlit.app/",
-    linkLabel: "Open Quorum",
+    links: [
+      { label: "Quorum live demo", href: "https://quorum-multi-agent.streamlit.app/" },
+      { label: "Quorum GitHub", href: "https://github.com/sakshamsingh22/quorum-multi-agent-research" },
+    ],
   },
   {
     id: "wibly",
@@ -59,8 +67,43 @@ export const assistantKnowledge = [
     keywords: ["samtrack", "productivity", "focuslist", "thumbnail", "video assistant", "projects"],
     answer:
       "Other portfolio projects include SamTrack OS, a productivity dashboard for goals, tasks, DSA progress, focus sessions, and analytics; AI Video Assistant, for transcripts, summaries, insights, and transcript Q&A; AI Thumbnail Generator, for asynchronous thumbnail generation; and FocusList, a lightweight task manager.",
-    link: "https://sam-track-os.vercel.app/",
-    linkLabel: "Open SamTrack OS",
+    links: [
+      { label: "SamTrack OS live demo", href: "https://sam-track-os.vercel.app/" },
+      { label: "SamTrack OS GitHub", href: "https://github.com/sakshamsingh22/SamTrack-OS" },
+    ],
+  },
+  {
+    id: "video-assistant",
+    keywords: ["ai video", "video assistant", "whisper", "transcript", "youtube assistant"],
+    answer:
+      "AI Video Assistant turns videos, audio, and YouTube content into transcripts, summaries, insights, and searchable answers. There is no live demo link currently listed, but the source is available on GitHub.",
+    links: [{ label: "AI Video Assistant GitHub", href: "https://github.com/sakshamsingh22/AI-Video-Assistant" }],
+  },
+  {
+    id: "thumbnail-generator",
+    keywords: ["thumbnail", "image generator", "ai thumbnail"],
+    answer:
+      "AI Thumbnail Generator creates YouTube thumbnails with asynchronous processing, live status updates, and flexible delivery. There is no live demo link currently listed, but the source is available on GitHub.",
+    links: [{ label: "AI Thumbnail Generator GitHub", href: "https://github.com/sakshamsingh22/AI-Thumbnail-Generator" }],
+  },
+  {
+    id: "samtrack-project",
+    keywords: ["what is samtrack", "samtrack project", "productivity os"],
+    answer:
+      "SamTrack OS is a productivity dashboard concept for organizing goals, tasks, DSA progress, focus sessions, consistency, and analytics.",
+    links: [
+      { label: "SamTrack OS live demo", href: "https://sam-track-os.vercel.app/" },
+      { label: "SamTrack OS GitHub", href: "https://github.com/sakshamsingh22/SamTrack-OS" },
+    ],
+  },
+  {
+    id: "focuslist-project",
+    keywords: ["focuslist project", "focuslist", "to-do app", "todo app", "task manager"],
+    answer: "FocusList is a focused task manager built for clarity and daily planning.",
+    links: [
+      { label: "FocusList live demo", href: "https://sakshamsingh22.github.io/TO-DO/" },
+      { label: "FocusList GitHub", href: "https://github.com/sakshamsingh22/TO-DO" },
+    ],
   },
   {
     id: "experience",

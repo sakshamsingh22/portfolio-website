@@ -1,5 +1,7 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import HeroScene from "../components/HeroScene";
+
+const HeroScene = lazy(() => import("../components/HeroScene"));
 
 export default function Hero() {
   return (
@@ -71,7 +73,9 @@ export default function Hero() {
         <div className="relative h-72 w-full md:h-96">
           <div className="absolute inset-0 rounded-3xl border border-white/10 bg-base-800/40 shadow-card" />
           <div className="absolute inset-0 -translate-y-4 rounded-3xl border border-neon-500/20 bg-gradient-to-br from-neon-500/10 via-transparent to-transparent" />
-          <HeroScene />
+          <Suspense fallback={<div className="absolute inset-0 animate-pulse rounded-3xl bg-neon-500/5" aria-label="Loading interactive portfolio scene" />}>
+            <HeroScene />
+          </Suspense>
         </div>
       </div>
     </section>
