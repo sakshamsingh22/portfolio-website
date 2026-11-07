@@ -1,45 +1,84 @@
-# Saksham Singh 3D Portfolio
+# Saksham Singh | 3D Developer Portfolio
 
-Modern 3D portfolio built with React + Vite, Three.js (R3F + Drei), Tailwind CSS, and Framer Motion.
+A personal portfolio built with React, Vite, Three.js, React Three Fiber, Drei, Tailwind CSS, and Framer Motion.
 
-## Quick Start
+**Portfolio:** [saksham-singh.in](https://saksham-singh.in)  
+**Source:** [github.com/sakshamsingh22/portfolio-website](https://github.com/sakshamsingh22/portfolio-website)
+
+## What this project demonstrates
+
+- A 3D scene and interactive visual presentation using Three.js and React Three Fiber
+- Component-driven UI built with React
+- Motion and transitions with Framer Motion
+- Utility-first styling with Tailwind CSS
+- Centralized portfolio content for projects, skills, timeline, and achievements
+
+## Featured work shown in the portfolio
+
+Project data is maintained in `src/data/content.js`. Current entries include:
+
+| Project | Focus | Repository |
+| --- | --- | --- |
+| Quorum | Multi-agent AI research workflow | [Source](https://github.com/sakshamsingh22/quorum-multi-agent-research) |
+| AI Video Assistant | Transcription, summarization, and RAG Q&A | [Source](https://github.com/sakshamsingh22/AI-Video-Assistant) |
+| SamTrack OS | Productivity and coding tracker | [Source](https://github.com/sakshamsingh22/SamTrack-OS) |
+| FocusList | Browser-based task manager | [Source](https://github.com/sakshamsingh22/TO-DO) |
+
+The project cards and their links are editable in `src/data/content.js`. Confirm that each deployed destination is live before sharing it as a working demo.
+
+## Tech stack
+
+- **UI:** React 18, Tailwind CSS
+- **3D:** Three.js, @react-three/fiber, @react-three/drei
+- **Animation:** Framer Motion
+- **Build tooling:** Vite 5
+- **Contact:** EmailJS browser SDK
+
+## Requirements
+
+- Node.js compatible with Vite 5
+- npm
+
+## Run locally
 
 ```bash
+git clone https://github.com/sakshamsingh22/portfolio-website.git
+cd portfolio-website
 npm install
 npm run dev
 ```
 
-Open the local URL printed in the terminal.
+Vite prints the local development URL in the terminal.
 
-## Build
+## Production build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Deploy
+The production output is generated in `dist/`.
 
-### Vercel
-1. Import the repo in Vercel.
-2. Framework preset: `Vite`.
-3. Build command: `npm run build`.
-4. Output directory: `dist`.
+## Deployment
 
-### Netlify
-1. New site from Git.
-2. Build command: `npm run build`.
-3. Publish directory: `dist`.
+This is a Vite static site. Configure the hosting provider with:
 
-## Customize Content
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
 
-Update these files:
-- `src/data/content.js` for projects, timeline, and skills.
-- `src/sections/Contact.jsx` for social links.
-- `src/sections/Hero.jsx` and `src/sections/About.jsx` for intro copy.
+A GitHub Pages workflow is present under `.github/workflows/static.yml`. Check the repository's Actions and Pages settings for the current deployment status and published URL.
 
-## Performance Notes
-- 3D assets are lightweight primitives.
-- Stars backdrop uses an efficient point cloud.
-- Motion animations are limited to key sections.
+## Customize content
 
+- `src/data/content.js`: projects, timeline, skills, certifications, and achievements
+- `src/sections/Hero.jsx`: hero section
+- `src/sections/About.jsx`: introduction
+- `src/sections/Contact.jsx`: contact links
+
+## Validation
+
+Run `npm run build` before deploying. No build result is claimed by this README update; validate locally or through the repository's CI workflow.
+
+## Author
+
+**Saksham Singh** · [Portfolio](https://saksham-singh.in) · [GitHub](https://github.com/sakshamsingh22)
